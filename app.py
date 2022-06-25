@@ -23,14 +23,8 @@ with open("data.json",encoding="utf8") as file:
 
 
 @app.route('/')
-def hmm():
-    """
-    It loads the index.html file and returns it to the browser
-    :return: The index.html file is being returned.
-    """
-    
-    #load the index.html file
-    return render_template("index.html")
+def Home():
+    return render_template('app.html')
 
 
 @app.route('/raw')
@@ -64,4 +58,4 @@ def apis(Number):
 
 # Running the app.
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080)
