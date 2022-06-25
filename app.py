@@ -1,8 +1,3 @@
-# Here's what the code is doing:
-# 1.It loads the index.html file and returns it to the browser
-# 2. It returns a string that is the JSON representation of the JSON object
-# 3. It returns a random item from the JSON list
-# 4. It returns the JSON data of the API number you input
 
 # pdoc3 was used to generate the documentation
 
@@ -13,7 +8,7 @@ import random
 from rich import *
 
 # Creating a Flask object.
-app = Flask(__name__)
+app = Flask(__name__,template_folder="../templates")
 
 
 #* source for data is https://github.com/itmmckernan/triviaJSON and formatted by me
@@ -24,7 +19,7 @@ with open("data.json",encoding="utf8") as file:
 
 @app.route('/')
 def Home():
-    return render_template('app.html')
+    return render_template('index.html')
 
 
 @app.route('/raw')
