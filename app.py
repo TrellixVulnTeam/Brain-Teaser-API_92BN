@@ -30,7 +30,7 @@ def hmm():
     """
     
     #load the index.html file
-    return render_template('main.html')
+    return render_template("index.html")
 
 
 @app.route('/raw')
