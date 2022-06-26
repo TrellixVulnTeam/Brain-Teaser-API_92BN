@@ -49,7 +49,8 @@ def apis(Number):
     """
     if Number > 206 and Number < 0:
         return "Error: Invalid API number"
-    return JSON[Number]
+    else:
+        return JSON[Number]
 
 
 # Running the app.
