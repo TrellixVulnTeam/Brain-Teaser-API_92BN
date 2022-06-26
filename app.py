@@ -47,6 +47,8 @@ def apis(Number):
     :param Number: The number of the API you want to use
     :return: The JSON data
     """
+    if Number > 206 and Number < 0:
+        return "Error: Invalid API number"
     return JSON[Number]
 
 
