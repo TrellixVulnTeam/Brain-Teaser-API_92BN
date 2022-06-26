@@ -1,4 +1,3 @@
-
 # pdoc3 was used to generate the documentation
 
 # Imports
@@ -8,18 +7,17 @@ import random
 from rich import *
 
 # Creating a Flask object.
-app = Flask(__name__,template_folder="../templates")
-
+app = Flask(__name__, template_folder='template')
 
 #* source for data is https://github.com/itmmckernan/triviaJSON and formatted by me
 # Opening the data.json file and loading it into the JSON variable.
-with open("data.json",encoding="utf8") as file:
+with open("data.json", encoding="utf8") as file:
     JSON = json.load(file)
 
 
 @app.route('/')
 def Home():
-    return render_template('index.html')
+    return render_template('app.html')
 
 
 @app.route('/raw')
@@ -37,7 +35,7 @@ def api():
     It returns a random item from the JSON list
     :return: A random number between 0 and 206
     """
-    num = random.randint(0,206)
+    num = random.randint(0, 206)
     return JSON[num]
 
 
@@ -51,6 +49,7 @@ def apis(Number):
     """
     return JSON[Number]
 
+
 # Running the app.
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(host='0.0.0.0',port=8080)
